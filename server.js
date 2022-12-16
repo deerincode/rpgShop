@@ -10,6 +10,7 @@ const Items = require('./models/items.js')
 db = mongoose.connection
 
 app.use(express.urlencoded({extended: false}))
+app.use(express.static(__dirname + '/public'))
 mongoose.set('strictQuery', true)
 
 // App setup
@@ -24,10 +25,15 @@ mongoose.connect(process.env.MONGO_URI, {
   })
 
 
+
+app.get('/', (req, res) =>{
+    res.send('Welcome traveler, to the completely online RPG item shop')
+})
+
 // Index
 app.get('/products', (req, res) => {
-    Items.find({},(error, items) =>{
-        res.render('Index', {item: items})
+    Items.find({}, (error, allItems) =>{
+        res.render('Index', {item: allItems})
     })
 })
 
@@ -51,12 +57,12 @@ app.put('/products/:id', (req, res) =>{
 })
 
 // Create
-app.post('/products', (req, res =>{
+app.post('/products', (req, res) =>{
     console.log(req.body)
     Items.create(req.body, (error, createdItem) =>{
         res.redirect('/products')
     })
-}))
+})
 
 // Edit
 app.get('/products/:id/edit', (req, res) => {
@@ -75,6 +81,7 @@ app.get('/products/:id/edit', (req, res) => {
 // Show
 app.get('/products/:id', (req, res) =>{
     Items.findById(req.params.id, (err, foundItem) =>{
+        console.log(foundItem)
         res.render('Show', {
             item: foundItem,
         })
