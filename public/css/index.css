@@ -1,30 +1,81 @@
-*{
-    background-color:rgb(69, 69, 226) ;
+@font-face {
+    font-family: final_fantasy;
+    src: url(./FinalFantasy-aa4m.ttf);
+    font-weight: normal;
+    font-style: normal;
 }
 
-.itemBox{
-    background-color: aliceblue;
-    width: 20vh;
-    height: 20vh;
-    /* max-width: 15vh;
-    max-height: 15vh; */
-    margin: auto;
-    padding: auto;
+
+html{
+    background-color:rgb(114, 114, 244) ;
+    /* height: 100vh;
+    width: 100vw; */
 }
 
-img{
+.container{
     display: flex;
     justify-content: space-evenly;
-    max-width: 15vh;
-    max-height: 15vh;
-    margin: auto;
+    /* width: 80vw; */
 }
 
 ul{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1rem;
+    list-style: none;
+    
+    text-align: center;
+    
+    margin-left: 5%;
+    margin-right: 5%;
+    
+}
+
+/* .itemBox{
+    background-color: aliceblue;
+    width: 20vw;
+    height: 25vh;
+    max-width: 15vh;
+    max-height: 15vh;
+    margin: auto;
+    padding: auto;
+} */
+
+.itemBox{
+    background: #F9423A;
+    border-style: outset;
+    border-width: 10px;
+}
+
+h1{
+    font-family: final_fantasy;
     text-align: center;
 }
+
+img{
+    /* display: flex;
+    justify-content: center;
+    max-width: 15vw;
+    max-height: 15vh;
+    margin: auto; */
+
+    max-height: 180px;
+    max-width: 180px;
+    margin:auto;
+}
+
+/* ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-between;
+    text-align: center;
+    margin: auto;
+    border: 50px;
+    border-color: black;
+} */
 
 /* h4{
     text-align: center;
 } */
+
