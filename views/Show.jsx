@@ -1,5 +1,19 @@
 const React = require('react')
 
+function Header () {
+    return(
+        <section className='header'>
+            <section className='logoContainer'>
+                <img className='logo' src='../images/shopLogo.jpg'></img>
+            </section>
+            <section className='navbar'>
+                <a className='navItem' href="/">Home</a>
+                <a className='navItem' href="/products">Inventory</a>
+                <a className='navItem' href="/products/new">Add New Item</a>
+            </section>
+        </section>
+    )
+}
 
 class Show extends React.Component{
     render(){
@@ -15,7 +29,7 @@ class Show extends React.Component{
                 <input type='hidden' name='price' defaultValue={this.props.item.price} />
                 <input type='hidden' name='stockCount' defaultValue={this.props.item.stockCount - 1} />
 
-                <input type="submit" value="BUY" />
+                <input className='buyBttn' type="submit" value="BUY" />
             </form>
 
             stockCount = `Stock: ${this.props.item.stockCount}`
@@ -27,20 +41,34 @@ class Show extends React.Component{
 
         return(
             <div>
-                <h1>Item Page</h1>
-                <h3>{this.props.item.name}</h3>
-                <img src={`${this.props.item.img}`}></img>
-                <h5>{this.props.item.description}</h5>
-                <h6>Price: {this.props.item.price}</h6>
-                <h5>{stockCount}</h5>
-                {button}
-
-                <br />
-                <a href='/products'>Back</a><br />
-                <a href={`/products/${this.props.item._id}/edit`}>Edit</a>
-                <form action={`/products/${this.props.item._id}?_method=DELETE`} method="POST">
-                    <input type="submit" value="DELETE" />
-                </form>
+                <link rel="stylesheet" type="text/css" href="../css/show.css" />
+                {/* <h1>Item Page</h1> */}
+                {Header()}
+                <div className='body'>
+                    <div className='itemBox'>
+                        <section className='grid1'>
+                            <h3>{this.props.item.name}</h3>
+                            <img class='productImg' src={`${this.props.item.img}`}></img>
+                        </section>
+                        <section className='grid2'>
+                            <h5>{this.props.item.description}</h5>
+                            <h6>Price: {this.props.item.price}</h6>
+                            <h5>{stockCount}</h5>
+                        </section>
+                        <section className='grid3'>
+                            
+                            {button}
+                            <form action={`/products/${this.props.item._id}?_method=DELETE`} method="POST">
+                                <input className='delBttn' type="submit" value="DELETE" />
+                            </form>
+                            <a href={`/products/${this.props.item._id}/edit`}>Edit</a>
+                            
+                        </section>
+                    </div>
+                </div>
+                
+                
+                
             </div>
         )
 
