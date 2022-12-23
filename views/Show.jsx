@@ -42,7 +42,6 @@ class Show extends React.Component{
         return(
             <div>
                 <link rel="stylesheet" type="text/css" href="../css/show.css" />
-                {/* <h1>Item Page</h1> */}
                 {Header()}
                 <div className='body'>
                     <div className='itemBox'>
@@ -52,7 +51,7 @@ class Show extends React.Component{
                         </section>
                         <section className='grid2'>
                             <h5>{this.props.item.description}</h5>
-                            <h6>Price: {this.props.item.price}</h6>
+                            <h6>Price: ${this.props.item.price}</h6>
                             <h5>{stockCount}</h5>
                         </section>
                         <section className='grid3'>
