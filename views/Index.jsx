@@ -24,15 +24,10 @@ class Index extends React.Component {
             <div className='page'>
                 <link rel="stylesheet" type="text/css" href="../css/index.css" />
                 {Header()}
-                
-                {/* <div className='container'> */}
+            
                     <ul>
                         {this.props.item.map((item, i) => {
                             return (
-                                // <li>
-                                //     <a href={`/products/${item.id}`}>{item.name}
-                                //     </a>
-                                // </li>
 
                                 <div className='itemBox'>
                                     <h2>{item.name}</h2>
